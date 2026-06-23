@@ -1,0 +1,10 @@
+# node modules
+node_modules
+
+# output files
+dist
+build
+
+# package lock files
+package-lock.json
+pnpm-lock.yaml
