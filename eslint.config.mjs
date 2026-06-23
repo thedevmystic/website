@@ -25,10 +25,12 @@
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import tseslint from 'typescript-eslint';
+
+import hooksPlugin from 'eslint-plugin-react-hooks';
+import importPlugin from 'eslint-plugin-import-x';
 import nextConfig from 'eslint-config-next';
 import reactPlugin from 'eslint-plugin-react';
-import hooksPlugin from 'eslint-plugin-react-hooks';
+import tseslint from 'typescript-eslint';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,6 +58,62 @@ export default tseslint.config(
       ...hooksPlugin.configs.recommended.rules,
       'react/jsx-uses-react': 'off',
       'react/react-in-jsx-scope': 'off',
+    },
+  },
+
+  // Import-X ESLint Recommended Config
+  {
+    plugins: {
+      'import-x': importPlugin,
+    },
+    settings: {
+      'import-x/resolver': {
+        typescript: true,
+        node: true,
+      },
+    },
+    rules: {
+      'import-x/order': [
+        'error',
+        {
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            ['sibling', 'parent'],
+            'index',
+            'type',
+          ],
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'react-**',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'next',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'next/**',
+              group: 'external',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['react', 'next'],
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
     },
   },
 
