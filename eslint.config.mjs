@@ -76,14 +76,7 @@ export default tseslint.config(
       'import-x/order': [
         'error',
         {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            ['sibling', 'parent'],
-            'index',
-            'type',
-          ],
+          groups: ['builtin', 'external', 'internal', ['sibling', 'parent'], 'index', 'type'],
           pathGroups: [
             {
               pattern: 'react',
@@ -127,10 +120,7 @@ export default tseslint.config(
       },
     },
     rules: {
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { argsIgnorePattern: '^_' },
-      ],
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'react/self-closing-comp': 'error',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'prefer-const': 'error',

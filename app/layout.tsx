@@ -35,11 +35,7 @@ export const metadata: Metadata = {
   description: 'Under Development :)',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
@@ -110,8 +106,7 @@ export default function RootLayout({
               opacity: 0.5,
             }}
           >
-            &copy; {new Date().getFullYear()} Suryansh Singh (thedevmystic). All
-            rights reserved.
+            &copy; {new Date().getFullYear()} Suryansh Singh (thedevmystic). All rights reserved.
           </footer>
         </Providers>
       </body>

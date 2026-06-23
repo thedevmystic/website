@@ -29,13 +29,9 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 
-import { theme } from '@utils/theme';
+import { theme } from '@styles/theme';
 
-export const MuiThemeProviderWrapper = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
+export const MuiThemeProviderWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <StyledEngineProvider injectFirst>
       <AppRouterCacheProvider>
