@@ -87,11 +87,21 @@
 }
 
 /* Accent mappings */
-[data-accent='red'] { --color-accent: var(--color-accent-red); }
-[data-accent='blue'] { --color-accent: var(--color-accent-blue); }
-[data-accent='pink'] { --color-accent: var(--color-accent-pink); }
-[data-accent='green'] { --color-accent: var(--color-accent-green); }
-[data-accent='yellow'] { --color-accent: var(--color-accent-yellow); }
+[data-accent='red'] {
+  --color-accent: var(--color-accent-red);
+}
+[data-accent='blue'] {
+  --color-accent: var(--color-accent-blue);
+}
+[data-accent='pink'] {
+  --color-accent: var(--color-accent-pink);
+}
+[data-accent='green'] {
+  --color-accent: var(--color-accent-green);
+}
+[data-accent='yellow'] {
+  --color-accent: var(--color-accent-yellow);
+}
 
 /* TEXT COLORS */
 /* Light theme (Default) */
@@ -216,7 +226,8 @@
 
 /* INTERACTIVE STATES (Hover, Active, Selection, Focus) */
 /* Light theme (Default) */
-:root, [data-theme='light'] {
+:root,
+[data-theme='light'] {
   --color-action-hover: rgba(0, 0, 0, 0.04);
   --color-action-active: rgba(0, 0, 0, 0.08);
   --color-action-selected: rgba(0, 0, 0, 0.06);
@@ -229,8 +240,8 @@
 [data-theme='dark'] {
   --color-action-hover: rgba(255, 255, 255, 0.08);
   --color-action-active: rgba(255, 255, 255, 0.12);
-  --color-action-selected: rgba(255, 255, 255, 0.10);
-  --color-action-disabled: rgba(255, 255, 255, 0.50);
+  --color-action-selected: rgba(255, 255, 255, 0.1);
+  --color-action-disabled: rgba(255, 255, 255, 0.5);
   --color-action-disabled-bg: rgba(255, 255, 255, 0.12);
 }
 
@@ -238,19 +249,19 @@
 [data-theme='high-contrast-light'] {
   --color-action-hover: rgba(0, 0, 0, 0.12);
   --color-action-active: rgba(0, 0, 0, 0.24);
-  --color-action-selected: rgba(0, 0, 0, 0.20);
-  --color-action-disabled: rgba(0, 0, 0, 0.60);
-  --color-action-disabled-bg: rgba(0, 0, 0, 0.20);
+  --color-action-selected: rgba(0, 0, 0, 0.2);
+  --color-action-disabled: rgba(0, 0, 0, 0.6);
+  --color-action-disabled-bg: rgba(0, 0, 0, 0.2);
   --color-focus-outline: oklch(0 0 0);
 }
 
 /* High contrast dark theme */
 [data-theme='high-contrast-dark'] {
-  --color-action-hover: rgba(255, 255, 255, 0.20);
+  --color-action-hover: rgba(255, 255, 255, 0.2);
   --color-action-active: rgba(255, 255, 255, 0.35);
-  --color-action-selected: rgba(255, 255, 255, 0.30);
-  --color-action-disabled: rgba(255, 255, 255, 0.70);
-  --color-action-disabled-bg: rgba(255, 255, 255, 0.30);
+  --color-action-selected: rgba(255, 255, 255, 0.3);
+  --color-action-disabled: rgba(255, 255, 255, 0.7);
+  --color-action-disabled-bg: rgba(255, 255, 255, 0.3);
   --color-focus-outline: oklch(1 0 0);
 }
 
@@ -313,14 +324,25 @@
 }
 
 /* Shadow mappings */
-[data-accent='red'] { --color-shadow: var(--color-shadow-red); }
-[data-accent='blue'] { --color-shadow: var(--color-shadow-blue); }
-[data-accent='pink'] { --color-shadow: var(--color-shadow-pink); }
-[data-accent='green'] { --color-shadow: var(--color-shadow-green); }
-[data-accent='yellow'] { --color-shadow: var(--color-shadow-yellow); }
+[data-accent='red'] {
+  --color-shadow: var(--color-shadow-red);
+}
+[data-accent='blue'] {
+  --color-shadow: var(--color-shadow-blue);
+}
+[data-accent='pink'] {
+  --color-shadow: var(--color-shadow-pink);
+}
+[data-accent='green'] {
+  --color-shadow: var(--color-shadow-green);
+}
+[data-accent='yellow'] {
+  --color-shadow: var(--color-shadow-yellow);
+}
 
 /* Elevation levels */
-:root, [data-accent] {
+:root,
+[data-accent] {
   --shadow-sm:
     0 1px 3px color-mix(in srgb, var(--color-shadow), transparent 92%),
     0 1px 2px color-mix(in srgb, var(--color-shadow), transparent 96%),

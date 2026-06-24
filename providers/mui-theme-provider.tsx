@@ -25,7 +25,6 @@
 
 import { ReactNode } from 'react';
 
-import { StyledEngineProvider } from '@mui/material/styles';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
 
@@ -33,10 +32,8 @@ import { theme } from '@styles/theme';
 
 export const MuiThemeProviderWrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <StyledEngineProvider injectFirst>
-      <AppRouterCacheProvider>
-        <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
-      </AppRouterCacheProvider>
-    </StyledEngineProvider>
+    <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+    </AppRouterCacheProvider>
   );
 };
