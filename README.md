@@ -1,7 +1,7 @@
 <!-- Header -->
 <div align="center">
   <h1 style="font-size: 1.75rem; margin: 0.625rem 0;">
-    THEDEVMYSTIC
+    TheDevMystic
   </h1>
   <p>
     World's greatest website ever built!
@@ -73,7 +73,7 @@ website so it's not your avergae day broken sites!
 
 ## Where to Visit
 
-Just go the [live website](https://thedevmystic.github.io).
+Just go the [live website](https://thedevmystic.vercel.app).
 
 ---
 
