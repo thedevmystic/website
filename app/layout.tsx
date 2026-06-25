@@ -24,91 +24,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import type { ReactNode } from 'react';
+
 import type { Metadata } from 'next';
 
 import { Providers } from '@providers';
-
-import './globals.css';
+import { fonts } from '@styles/fonts';
+import '@styles/main.css';
 
 export const metadata: Metadata = {
   title: 'TheDevMystic | Under Development',
   description: 'Under Development :)',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" className={fonts}>
       <body>
-        <Providers>
-          <nav
-            style={{
-              padding: '1.5rem 2rem',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 2px 4px rgba(255, 255, 255, 0.1)',
-            }}
-          >
-            <span
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                letterSpacing: '-0.5px',
-              }}
-            >
-              TheDevMystic
-            </span>
-            <div style={{ display: 'flex', gap: '1.5rem' }}>
-              <a
-                href="#"
-                style={{
-                  fontSize: '0.9rem',
-                  textDecoration: 'none',
-                  color: 'inherit',
-                  opacity: 0.6,
-                }}
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                style={{
-                  fontSize: '0.9rem',
-                  textDecoration: 'none',
-                  color: 'inherit',
-                  opacity: 0.6,
-                }}
-              >
-                Blog
-              </a>
-              <a
-                href="#"
-                style={{
-                  fontSize: '0.9rem',
-                  textDecoration: 'none',
-                  color: 'inherit',
-                  opacity: 0.6,
-                }}
-              >
-                About
-              </a>
-            </div>
-          </nav>
-
-          <main style={{ flex: 1 }}>{children}</main>
-
-          <footer
-            style={{
-              padding: '2rem',
-              textAlign: 'center',
-              fontSize: '0.8rem',
-              opacity: 0.5,
-            }}
-          >
-            &copy; {new Date().getFullYear()} Suryansh Singh (thedevmystic). All rights reserved.
-          </footer>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
