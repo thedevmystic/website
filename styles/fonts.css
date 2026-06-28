@@ -55,17 +55,17 @@
     monospace;
 
   /* Current font variables */
-  --font-body: var(--font-inter), var(--font-sans-base);
-  --font-head: var(--font-source-serif-4), var(--font-serif-base);
+  --font-head: var(--font-noto-serif), var(--font-serif-base);
+  --font-body: var(--font-noto-sans), var(--font-sans-base);
   --font-mono: var(--font-jetbrains-mono), var(--font-mono-base);
 }
 
 /* Body fonts. */
 :root[data-font-body='sans'] {
-  --font-body: var(--font-inter), var(--font-sans-base);
+  --font-body: var(--font-noto-sans), var(--font-sans-base);
 }
 :root[data-font-body='serif'] {
-  --font-body: var(--font-source-serif-4), var(--font-serif-base);
+  --font-body: var(--font-noto-serif), var(--font-serif-base);
 }
 :root[data-font-body='comic'] {
   --font-body: var(--font-comic-relief), 'Comic Relief Fallback', var(--font-sans-base);
@@ -79,10 +79,10 @@
 
 /* Heading fonts. */
 :root[data-font-head='serif'] {
-  --font-head: var(--font-source-serif-4), var(--font-serif-base);
+  --font-head: var(--font-noto-serif), var(--font-serif-base);
 }
 :root[data-font-head='sans'] {
-  --font-head: var(--font-inter), var(--font-sans-base);
+  --font-head: var(--font-noto-sans), var(--font-sans-base);
 }
 :root[data-font-head='comic'] {
   --font-head: var(--font-comic-relief), 'Comic Relief Fallback', var(--font-sans-base);

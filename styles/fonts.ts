@@ -27,15 +27,15 @@
  * Here is list of what fonts are used for what purpose in the application.
  *
  * 1. Body Font
- *   - Inter (default sans-serif choice).
- *   - Source Serif 4 (alternative serif choice).
+ *   - Noto Sans (default sans-serif choice).
+ *   - Noto Serif (alternative serif choice).
  *   - Comic Relief (alternative sans-serif choice).
  *   - Default sans-serif.
  *   - Default serif.
  *
  * 2. Heading Font
- *   - Source Serif 4 (default serif choice).
- *   - Inter (alternative sans-serif choice).
+ *   - Noto Serif (default serif choice).
+ *   - Noto Sans (alternative sans-serif choice).
  *   - Comic Relief (alternative sans-serif choice).
  *   - Default sans-serif.
  *   - Default serif.
@@ -54,8 +54,8 @@
  */
 
 import {
-  Inter,
-  Source_Serif_4,
+  Noto_Sans,
+  Noto_Serif,
   Comic_Relief,
   JetBrains_Mono,
   Fira_Code,
@@ -65,18 +65,18 @@ import {
   Noto_Sans_Math,
 } from 'next/font/google';
 
-export const inter = Inter({
+export const notoSans = Noto_Sans({
   subsets: ['latin'],
   weight: 'variable',
-  variable: '--font-inter',
+  variable: '--font-noto-sans',
   preload: true,
   display: 'swap',
 });
 
-export const sourceSerif4 = Source_Serif_4({
+export const notoSerif = Noto_Serif({
   subsets: ['latin'],
   weight: 'variable',
-  variable: '--font-source-serif-4',
+  variable: '--font-noto-serif',
   preload: true,
   display: 'swap',
 });
@@ -140,8 +140,8 @@ export const notoMath = Noto_Sans_Math({
 });
 
 export const fonts = [
-  inter.variable,
-  sourceSerif4.variable,
+  notoSans.variable,
+  notoSerif.variable,
   comicRelief.variable,
   jetBrainsMono.variable,
   firaCode.variable,
