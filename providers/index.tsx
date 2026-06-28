@@ -25,7 +25,12 @@
  */
 
 import { MuiThemeProviderWrapper } from './mui-theme-provider';
+import { ThemeProvider } from './theme-provider';
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>;
+  return (
+    <ThemeProvider>
+      <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
+    </ThemeProvider>
+  );
 };

@@ -14,9 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file layout.tsx
- * @description Root layout component for the Next.js application, defining the overall structure
- *              and metadata.
+ * @file use-is-mounted.ts
+ * @description Hook to determine if a component is mounted.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,29 +23,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { ReactNode } from 'react';
+import { useSyncExternalStore } from 'react';
 
-import type { Metadata } from 'next';
+const emptyStore = () => () => {};
 
-import NavBar from '@components/navbar';
-import { Providers } from '@providers';
-import { fonts } from '@styles/fonts';
-import '@styles/main.css';
-
-export const metadata: Metadata = {
-  title: 'TheDevMystic | Under Development',
-  description: 'Under Development :)',
-};
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" className={fonts} suppressHydrationWarning>
-      <body>
-        <Providers>
-          <NavBar />
-          {children}
-        </Providers>
-      </body>
-    </html>
+/**
+ * Hook to determine if a component is mounted.
+ * @returns {boolean} True if the component is mounted, false otherwise.
+ */
+export default function useIsMounted() {
+  const isMounted = useSyncExternalStore(
+    emptyStore,
+    () => true,
+    () => false,
   );
+  return isMounted;
 }

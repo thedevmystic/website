@@ -31,9 +31,6 @@ import { useState, useEffect } from 'react';
 import { Container, Box, Typography, Button, Stack, Divider, Paper } from '@mui/material';
 
 export default function ThemeShowcasePage() {
-  const [theme, setTheme] = useState<
-    'light' | 'dark' | 'high-contrast-light' | 'high-contrast-dark' | 'sepia'
-  >('light');
   const [accent, setAccent] = useState<'blue' | 'red' | 'pink' | 'green' | 'yellow'>('blue');
   const [fontHead, setFontHead] = useState<'serif' | 'sans' | 'comic' | 'def-sans' | 'def-serif'>(
     'serif',
@@ -44,11 +41,10 @@ export default function ThemeShowcasePage() {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.setAttribute('data-theme', theme);
     root.setAttribute('data-accent', accent);
     root.setAttribute('data-font-head', fontHead);
     root.setAttribute('data-font-body', fontBody);
-  }, [theme, accent, fontHead, fontBody]);
+  }, [accent, fontHead, fontBody]);
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
@@ -70,35 +66,6 @@ export default function ThemeShowcasePage() {
         </Typography>
 
         <Stack spacing={2.5}>
-          <Box>
-            <Typography
-              variant="caption"
-              sx={{
-                display: 'block',
-                mb: 1,
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-              }}
-            >
-              Theme Mode
-            </Typography>
-            <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1 }}>
-              {(
-                ['light', 'dark', 'high-contrast-light', 'high-contrast-dark', 'sepia'] as const
-              ).map((t) => (
-                <Button
-                  key={t}
-                  size="small"
-                  variant={theme === t ? 'contained' : 'outlined'}
-                  onClick={() => setTheme(t)}
-                >
-                  {t.replace('-', ' ')}
-                </Button>
-              ))}
-            </Stack>
-          </Box>
-
           <Box>
             <Typography
               variant="caption"
@@ -247,10 +214,6 @@ export default function ThemeShowcasePage() {
             </Box>
 
             <Box>
-              <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
-                Lorem Ipsum: &lt;blockquote&gt;
-              </Typography>
-
               <blockquote>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed felis interdum,

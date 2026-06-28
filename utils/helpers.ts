@@ -14,9 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file layout.tsx
- * @description Root layout component for the Next.js application, defining the overall structure
- *              and metadata.
+ * @file helpers.ts
+ * @description Contains misc. helper funcctions and utils.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,29 +23,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import type { ReactNode } from 'react';
-
-import type { Metadata } from 'next';
-
-import NavBar from '@components/navbar';
-import { Providers } from '@providers';
-import { fonts } from '@styles/fonts';
-import '@styles/main.css';
-
-export const metadata: Metadata = {
-  title: 'TheDevMystic | Under Development',
-  description: 'Under Development :)',
-};
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" className={fonts} suppressHydrationWarning>
-      <body>
-        <Providers>
-          <NavBar />
-          {children}
-        </Providers>
-      </body>
-    </html>
-  );
+/**
+ * Checks if window is undefined.
+ */
+export function isWindowUndefined() {
+  return typeof window === 'undefined';
 }

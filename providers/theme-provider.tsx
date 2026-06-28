@@ -23,9 +23,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+'use client';
+
 import { createTokenProvider } from 'next-tokens';
 
-export const {
+export type Theme =
+  | 'light'
+  | 'dark'
+  | 'high-contrast-light'
+  | 'high-contrast-dark'
+  | 'sepia'
+  | 'system';
+
+const {
   Provider: ThemeProvider,
   useToken: useTheme,
   context: themeContext,
@@ -38,3 +48,5 @@ export const {
   tokens: ['light', 'dark', 'high-contrast-light', 'high-contrast-dark', 'sepia', 'system'],
   disableTransitionOnChange: false,
 });
+
+export { ThemeProvider, useTheme, themeContext };

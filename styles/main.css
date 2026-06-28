@@ -1,4 +1,5 @@
 /* Main CSS file for the website. */
 
 @import './colors.css';
+@import './components.css';
 @import './fonts.css';

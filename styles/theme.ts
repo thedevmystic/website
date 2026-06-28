@@ -29,6 +29,15 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 import type { Shadows } from '@mui/material/styles';
 
+// Add custom color schemes to MUI's theme typings
+declare module '@mui/material/styles' {
+  interface ColorSchemeOverrides {
+    'high-contrast-light'?: true;
+    'high-contrast-dark'?: true;
+    sepia?: true;
+  }
+}
+
 const baseTheme = createTheme({
   cssVariables: {
     colorSchemeSelector: '[data-theme="%s"]',
@@ -58,26 +67,26 @@ const baseTheme = createTheme({
       fontFamily: 'var(--font-head)',
       fontSize: '1.75rem',
       lineHeight: 1.2,
-      letterSpacing: '-0.02em',
+      letterSpacing: '-0.015em',
       fontWeight: 600,
     },
     h4: {
       fontFamily: 'var(--font-head)',
       fontSize: '1.5rem',
       lineHeight: 1.25,
-      letterSpacing: '0em',
+      letterSpacing: '-0.01em',
       fontWeight: 600,
     },
     h5: {
       fontFamily: 'var(--font-head)',
       fontSize: '1.25rem',
       lineHeight: 1.3,
-      letterSpacing: '0em',
+      letterSpacing: '-0.005em',
       fontWeight: 500,
     },
     h6: {
       fontFamily: 'var(--font-head)',
-      fontSize: '1rem',
+      fontSize: '1.0625rem',
       lineHeight: 1.35,
       letterSpacing: '0em',
       fontWeight: 500,
@@ -87,7 +96,7 @@ const baseTheme = createTheme({
     subtitle1: {
       fontSize: '1.125rem',
       lineHeight: 1.4,
-      fontWeight: 450,
+      fontWeight: 500,
       color: 'var(--color-text-primary)',
     },
     subtitle2: {
@@ -116,13 +125,14 @@ const baseTheme = createTheme({
     caption: {
       fontSize: '0.75rem',
       lineHeight: 1.35,
+      fontWeight: 400,
       color: 'var(--color-text-secondary)',
     },
 
     // Overline
     overline: {
       fontFamily: 'var(--font-mono)',
-      fontSize: '0.875rem',
+      fontSize: '0.8125rem',
       fontWeight: 600,
       lineHeight: 1.2,
       letterSpacing: '0.08em',
@@ -148,6 +158,7 @@ const baseTheme = createTheme({
         },
         divider: 'var(--color-divider)',
         action: {
+          active: 'var(--color-action-active)',
           hover: 'var(--color-action-hover)',
           selected: 'var(--color-action-selected)',
           disabled: 'var(--color-action-disabled)',
@@ -170,6 +181,76 @@ const baseTheme = createTheme({
         },
         divider: 'var(--color-divider)',
         action: {
+          active: 'var(--color-action-active)',
+          hover: 'var(--color-action-hover)',
+          selected: 'var(--color-action-selected)',
+          disabled: 'var(--color-action-disabled)',
+          disabledBackground: 'var(--color-action-disabled-bg)',
+        },
+      },
+    },
+    'high-contrast-light': {
+      palette: {
+        primary: { main: 'var(--color-accent)' },
+        secondary: { main: 'var(--color-text-secondary)' },
+        background: {
+          default: 'var(--color-bg-surface)',
+          paper: 'var(--color-bg-feature)',
+        },
+        text: {
+          primary: 'var(--color-text-primary)',
+          secondary: 'var(--color-text-secondary)',
+          disabled: 'var(--color-text-disabled)',
+        },
+        divider: 'var(--color-divider)',
+        action: {
+          active: 'var(--color-action-active)',
+          hover: 'var(--color-action-hover)',
+          selected: 'var(--color-action-selected)',
+          disabled: 'var(--color-action-disabled)',
+          disabledBackground: 'var(--color-action-disabled-bg)',
+        },
+      },
+    },
+    'high-contrast-dark': {
+      palette: {
+        primary: { main: 'var(--color-accent)' },
+        secondary: { main: 'var(--color-text-secondary)' },
+        background: {
+          default: 'var(--color-bg-surface)',
+          paper: 'var(--color-bg-feature)',
+        },
+        text: {
+          primary: 'var(--color-text-primary)',
+          secondary: 'var(--color-text-secondary)',
+          disabled: 'var(--color-text-disabled)',
+        },
+        divider: 'var(--color-divider)',
+        action: {
+          active: 'var(--color-action-active)',
+          hover: 'var(--color-action-hover)',
+          selected: 'var(--color-action-selected)',
+          disabled: 'var(--color-action-disabled)',
+          disabledBackground: 'var(--color-action-disabled-bg)',
+        },
+      },
+    },
+    sepia: {
+      palette: {
+        primary: { main: 'var(--color-accent)' },
+        secondary: { main: 'var(--color-text-secondary)' },
+        background: {
+          default: 'var(--color-bg-surface)',
+          paper: 'var(--color-bg-feature)',
+        },
+        text: {
+          primary: 'var(--color-text-primary)',
+          secondary: 'var(--color-text-secondary)',
+          disabled: 'var(--color-text-disabled)',
+        },
+        divider: 'var(--color-divider)',
+        action: {
+          active: 'var(--color-action-active)',
           hover: 'var(--color-action-hover)',
           selected: 'var(--color-action-selected)',
           disabled: 'var(--color-action-disabled)',
@@ -191,8 +272,6 @@ const baseTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         html: {
-          fontVariantNumeric:
-            'oldstyle-nums proportional-nums slashed-zero ordinal stacked-fractions',
           fontVariantCaps: 'normal',
           fontVariantLigatures: 'normal',
           fontVariantPosition: 'normal',
@@ -208,25 +287,6 @@ const baseTheme = createTheme({
           WebkitTapHighlightColor: 'transparent',
 
           minHeight: '100dvh',
-
-          scrollbarWidth: 'thin',
-          scrollbarColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent) transparent',
-          scrollbarGutter: 'stable',
-        },
-
-        // Scrollbar Styles for WebKit Browsers
-        '::-webkit-scrollbar': {
-          width: '0.75rem',
-          height: '0.75rem',
-        },
-        '::-webkit-scrollbar-track': {
-          background: 'transparent',
-        },
-        '::-webkit-scrollbar-thumb': {
-          backgroundColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent)',
-          borderRadius: '0.375rem',
-          border: '0.1875rem solid transparent',
-          backgroundClip: 'content-box',
         },
 
         // Body
@@ -332,6 +392,140 @@ const baseTheme = createTheme({
         },
         '@media (max-width: 48rem)': {
           html: { touchAction: 'manipulation' },
+        },
+      },
+    },
+    MuiPaper: {
+      defaultProps: {
+        elevation: 0,
+      },
+      styleOverrides: {
+        root: {
+          backgroundImage: 'none !important',
+        },
+      },
+    },
+    MuiDialog: {
+      defaultProps: {
+        slotProps: {
+          paper: {
+            elevation: 0,
+          },
+        },
+      },
+      styleOverrides: {
+        root: {
+          '& .MuiBackdrop-root': {
+            backdropFilter: 'blur(4px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          },
+          '[data-theme="high-contrast-light"] & .MuiBackdrop-root, [data-theme="high-contrast-dark"] & .MuiBackdrop-root':
+            {
+              backdropFilter: 'none',
+            },
+        },
+        paper: {
+          backgroundColor: 'color-mix(in srgb, var(--color-bg-feature) 50%, transparent)',
+          backdropFilter: 'blur(12px)',
+          webkitBackdropFilter: 'blur(12px)',
+          border: '1px solid var(--color-border)',
+
+          '[data-theme="high-contrast-light"] &': {
+            backgroundColor: 'var(--color-bg-feature)',
+            backdropFilter: 'none',
+            webkitBackdropFilter: 'none',
+            border: '2px solid var(--color-border)',
+          },
+          '[data-theme="high-contrast-dark"] &': {
+            backgroundColor: 'var(--color-bg-feature)',
+            backdropFilter: 'none',
+            webkitBackdropFilter: 'none',
+            border: '2px solid var(--color-border)',
+          },
+        },
+      },
+    },
+    MuiSwitch: {
+      styleOverrides: {
+        root: {
+          width: 40,
+          height: 20,
+          padding: 0,
+          display: 'flex',
+          overflow: 'visible',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        switchBase: {
+          padding: 2,
+          color: 'var(--color-switch-thumb-unchecked)',
+          '&.Mui-checked': {
+            transform: 'translateX(20px)',
+            color: 'var(--color-accent)',
+            '& + .MuiSwitch-track': {
+              opacity: 1,
+              backgroundColor: 'color-mix(in srgb, var(--color-accent) 40%, transparent)',
+            },
+          },
+          '&.Mui-disabled': {
+            color: 'var(--color-switch-thumb-disabled)',
+            '& + .MuiSwitch-track': {
+              backgroundColor: 'var(--color-switch-track-disabled)',
+            },
+          },
+        },
+        thumb: {
+          width: 16,
+          height: 16,
+          boxShadow: 'none',
+        },
+        track: {
+          borderRadius: 10,
+          opacity: 1,
+          backgroundColor: 'var(--color-switch-track-unchecked)',
+          border: '1px solid var(--color-border)',
+          transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+        },
+      },
+    },
+    MuiToggleButtonGroup: {
+      styleOverrides: {
+        root: {
+          padding: 2,
+        },
+      },
+    },
+    MuiToggleButton: {
+      styleOverrides: {
+        root: {
+          color: 'var(--color-text-secondary) !important',
+          borderColor: 'var(--color-border) !important',
+          backgroundColor: 'transparent',
+          borderRadius: 12,
+          width: 30,
+          height: 30,
+          padding: 0,
+          transition:
+            'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+
+          '&:hover': {
+            backgroundColor: 'var(--color-action-hover) !important',
+          },
+
+          '&.Mui-selected': {
+            color: 'var(--color-text-primary) !important',
+            backgroundColor: 'var(--color-action-selected) !important',
+            fontWeight: 700,
+            '&:hover': {
+              backgroundColor: 'var(--color-action-active) !important',
+            },
+          },
+
+          '&.Mui-disabled': {
+            color: 'var(--color-text-disabled) !important',
+            borderColor: 'var(--color-divider) !important',
+            opacity: 0.5,
+          },
         },
       },
     },
