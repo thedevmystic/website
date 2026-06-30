@@ -14,9 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file index.tsx
- * @description Entry point for the providers module, exporting all provider components for use in
- *              the application as a single provider.
+ * @file batch-script.tsx
+ * @description Batch script for setting up providers state.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,19 +23,34 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { AccentProvider } from './accent-provider';
-import { BatchScript } from './batch-script';
-import { MuiThemeProviderWrapper } from './mui-theme-provider';
-import { ThemeProvider } from './theme-provider';
+import { BatchedTokenScript } from 'next-tokens';
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
+interface BatchScriptProps {
+  nonce: string;
+}
+
+export function BatchScript({ nonce }: BatchScriptProps) {
   return (
-    <ThemeProvider>
-      <AccentProvider>
-        <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
-      </AccentProvider>
-    </ThemeProvider>
+    <BatchedTokenScript
+      nonce={nonce}
+      instances={[
+        {
+          storageKey: 'theme',
+          attribute: 'data-theme',
+          defaultToken: 'system',
+          enableSystem: true,
+          enableColorScheme: true,
+          tokens: ['light', 'dark', 'high-contrast-light', 'high-contrast-dark', 'sepia', 'system'],
+        },
+        {
+          storageKey: 'accent',
+          attribute: 'data-accent',
+          defaultToken: 'blue',
+          enableSystem: false,
+          enableColorScheme: false,
+          tokens: ['blue', 'red', 'green', 'yellow', 'pink'],
+        },
+      ]}
+    />
   );
-};
-
-export { BatchScript };
+}

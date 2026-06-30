@@ -26,8 +26,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { IconButton, Dialog, Box } from '@mui/material';
+
 import SettingsIcon from '@mui/icons-material/Settings';
+import { IconButton, Dialog, Box } from '@mui/material';
+
 import SettingsPanel from '@components/settings-panel';
 
 export default function NavBar() {

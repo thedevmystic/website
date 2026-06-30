@@ -28,8 +28,10 @@ import type { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
 
+import { headers } from 'next/headers';
+
 import NavBar from '@components/navbar';
-import { Providers } from '@providers';
+import { BatchScript, Providers } from '@providers';
 import { fonts } from '@styles/fonts';
 import '@styles/main.css';
 
@@ -38,9 +40,15 @@ export const metadata: Metadata = {
   description: 'Under Development :)',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const headersList = await headers();
+  const nonce = headersList.get('x-nonce') || '';
+
   return (
-    <html lang="en" className={fonts} suppressHydrationWarning>
+    <html lang="en" className={fonts} nonce={nonce} suppressHydrationWarning>
+      <head>
+        <BatchScript nonce={nonce} />
+      </head>
       <body>
         <Providers>
           <NavBar />

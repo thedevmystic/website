@@ -31,7 +31,6 @@ import { useState, useEffect } from 'react';
 import { Container, Box, Typography, Button, Stack, Divider, Paper } from '@mui/material';
 
 export default function ThemeShowcasePage() {
-  const [accent, setAccent] = useState<'blue' | 'red' | 'pink' | 'green' | 'yellow'>('blue');
   const [fontHead, setFontHead] = useState<'serif' | 'sans' | 'comic' | 'def-sans' | 'def-serif'>(
     'serif',
   );
@@ -41,10 +40,9 @@ export default function ThemeShowcasePage() {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.setAttribute('data-accent', accent);
     root.setAttribute('data-font-head', fontHead);
     root.setAttribute('data-font-body', fontBody);
-  }, [accent, fontHead, fontBody]);
+  }, [fontHead, fontBody]);
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
@@ -66,33 +64,6 @@ export default function ThemeShowcasePage() {
         </Typography>
 
         <Stack spacing={2.5}>
-          <Box>
-            <Typography
-              variant="caption"
-              sx={{
-                display: 'block',
-                mb: 1,
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-              }}
-            >
-              Accent Color
-            </Typography>
-            <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1 }}>
-              {(['blue', 'red', 'pink', 'green', 'yellow'] as const).map((a) => (
-                <Button
-                  key={a}
-                  size="small"
-                  variant={accent === a ? 'contained' : 'outlined'}
-                  onClick={() => setAccent(a)}
-                >
-                  {a}
-                </Button>
-              ))}
-            </Stack>
-          </Box>
-
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={4}>
             <Box sx={{ flex: 1 }}>
               <Typography

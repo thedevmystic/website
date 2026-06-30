@@ -26,6 +26,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
+import ComputerIcon from '@mui/icons-material/Computer';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import {
   Box,
   Typography,
@@ -35,11 +39,9 @@ import {
   Tooltip,
   Divider,
 } from '@mui/material';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import ComputerIcon from '@mui/icons-material/Computer';
 
 import { useTheme } from '@providers/theme-provider';
+
 import type { Theme } from '@providers/theme-provider';
 
 type BaseTheme = 'light' | 'dark' | 'system';
@@ -56,17 +58,6 @@ export default function ThemeToggle() {
   const isHighContrast =
     theme === 'high-contrast-light' || theme === 'high-contrast-dark' || systemHC;
   const isSepia = theme === 'sepia';
-
-  // Sync baseTheme state with the current theme whenever it changes
-  useEffect(() => {
-    if (theme === 'system') {
-      setBaseTheme('system');
-    } else if (theme === 'dark') {
-      setBaseTheme('dark');
-    } else if (theme === 'light') {
-      setBaseTheme('light');
-    }
-  }, [theme]);
 
   const handleThemeChange = (
     _event: React.MouseEvent<HTMLElement>,
@@ -108,6 +99,8 @@ export default function ThemeToggle() {
       setTheme(baseTheme as Theme);
     }
   };
+  
+  const currentBaseTheme = isSepia ? null : baseTheme;
 
   return (
     <Box sx={{ overflow: 'visible' }}>
@@ -125,7 +118,7 @@ export default function ThemeToggle() {
           Theme
         </Typography>
         <ToggleButtonGroup
-          value={isSepia ? null : baseTheme}
+          value={currentBaseTheme}
           exclusive
           onChange={handleThemeChange}
           disabled={isSepia}

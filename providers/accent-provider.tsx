@@ -14,9 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file index.tsx
- * @description Entry point for the providers module, exporting all provider components for use in
- *              the application as a single provider.
+ * @file accent-provider.tsx
+ * @description Provider for wrapping the application with the accent switcher.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,19 +23,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { AccentProvider } from './accent-provider';
-import { BatchScript } from './batch-script';
-import { MuiThemeProviderWrapper } from './mui-theme-provider';
-import { ThemeProvider } from './theme-provider';
+'use client';
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ThemeProvider>
-      <AccentProvider>
-        <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
-      </AccentProvider>
-    </ThemeProvider>
-  );
-};
+import { createTokenProvider } from 'next-tokens';
 
-export { BatchScript };
+export type Accent = 'blue' | 'red' | 'green' | 'yellow' | 'pink';
+
+const {
+  Provider: AccentProvider,
+  useToken: useAccent,
+  context: accentContext,
+} = createTokenProvider<Accent>({
+  storageKey: 'accent',
+  attribute: 'data-accent',
+  defaultToken: 'blue',
+  enableSystem: false,
+  enableColorScheme: false,
+  tokens: ['blue', 'red', 'green', 'yellow', 'pink'],
+  disableTransitionOnChange: false,
+  skipScript: true,
+});
+
+export { AccentProvider, useAccent, accentContext };

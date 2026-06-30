@@ -430,13 +430,7 @@ const baseTheme = createTheme({
           webkitBackdropFilter: 'blur(12px)',
           border: '1px solid var(--color-border)',
 
-          '[data-theme="high-contrast-light"] &': {
-            backgroundColor: 'var(--color-bg-feature)',
-            backdropFilter: 'none',
-            webkitBackdropFilter: 'none',
-            border: '2px solid var(--color-border)',
-          },
-          '[data-theme="high-contrast-dark"] &': {
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
             backgroundColor: 'var(--color-bg-feature)',
             backdropFilter: 'none',
             webkitBackdropFilter: 'none',
@@ -501,7 +495,7 @@ const baseTheme = createTheme({
           color: 'var(--color-text-secondary) !important',
           borderColor: 'var(--color-border) !important',
           backgroundColor: 'transparent',
-          borderRadius: 12,
+          borderRadius: 8,
           width: 30,
           height: 30,
           padding: 0,
@@ -525,6 +519,30 @@ const baseTheme = createTheme({
             color: 'var(--color-text-disabled) !important',
             borderColor: 'var(--color-divider) !important',
             opacity: 0.5,
+          },
+        },
+      },
+    },
+    MuiTooltip: {
+      defaultProps: {
+        arrow: false,
+      },
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: 'color-mix(in srgb, var(--color-bg-feature) 75%, transparent)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          color: 'var(--color-text-secondary)',
+          border: '1px solid var(--color-border)',
+          borderRadius: 6,
+          padding: '4px 8px',
+          fontSize: '0.75rem',
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            backgroundColor: 'var(--color-bg-feature)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+            border: '2px solid var(--color-border)',
           },
         },
       },

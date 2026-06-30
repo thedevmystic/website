@@ -47,6 +47,7 @@ const {
   enableColorScheme: true,
   tokens: ['light', 'dark', 'high-contrast-light', 'high-contrast-dark', 'sepia', 'system'],
   disableTransitionOnChange: false,
+  skipScript: true,
 });
 
 export { ThemeProvider, useTheme, themeContext };

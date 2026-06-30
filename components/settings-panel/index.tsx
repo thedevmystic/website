@@ -27,12 +27,14 @@
 
 import { useState } from 'react';
 import type { ReactNode } from 'react';
-import { Box, Typography, IconButton, Skeleton } from '@mui/material';
+
 import CloseIcon from '@mui/icons-material/Close';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { Box, Typography, Divider, IconButton, Skeleton } from '@mui/material';
 
 import useIsMounted from '@hooks/use-is-mounted';
 
+import AccentToggle from './accent-toggle';
 import ThemeToggle from './theme-toggle';
 
 interface SettingsPanelProps {
@@ -160,6 +162,8 @@ export default function SettingsPanel({ onClose }: SettingsPanelProps) {
                 Appearance
               </Typography>
               <ThemeToggle />
+              <Divider />
+              <AccentToggle />
             </>
           )}
         </Box>
