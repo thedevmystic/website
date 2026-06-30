@@ -44,6 +44,8 @@ const baseTheme = createTheme({
     nativeColor: true,
   },
 
+  spacing: 'var(--spacing-unit)',
+
   // MUI Typography
   typography: {
     fontFamily: 'var(--font-body)',
@@ -110,13 +112,13 @@ const baseTheme = createTheme({
     // Body text
     body1: {
       fontSize: '1rem',
-      lineHeight: 1.5,
+      lineHeight: 'var(--line-height-body)',
       fontWeight: 400,
       color: 'var(--color-text-primary)',
     },
     body2: {
       fontSize: '0.875rem',
-      lineHeight: 1.42,
+      lineHeight: 'calc(var(--line-height-body) * 0.95)',
       fontWeight: 400,
       color: 'var(--color-text-secondary)',
     },
@@ -124,7 +126,7 @@ const baseTheme = createTheme({
     // Captions
     caption: {
       fontSize: '0.75rem',
-      lineHeight: 1.35,
+      lineHeight: 'calc(var(--line-height-body) * 0.90)',
       fontWeight: 400,
       color: 'var(--color-text-secondary)',
     },
@@ -293,7 +295,7 @@ const baseTheme = createTheme({
         body: {
           fontFamily: 'var(--font-body)',
           fontSize: '1rem',
-          lineHeight: 1.5,
+          lineHeight: 'var(--line-height-body)',
           fontWeight: 400,
           color: 'var(--color-text-primary)',
           backgroundColor: 'var(--color-bg-surface)',
@@ -334,17 +336,17 @@ const baseTheme = createTheme({
         hr: {
           border: 'none',
           borderTop: '1px solid var(--color-divider)',
-          margin: '1.5rem 0',
+          margin: 'calc(var(--spacing-unit) * 3) 0', // default to 8 * 3 = 24px (1.5rem)
         },
 
         // Blockquotes
         blockquote: {
-          margin: '1.5rem 0',
+          margin: 'calc(var(--spacing-unit) * 3) 0', // default to 8 * 3 = 24px (1.5rem)
           paddingLeft: '1.25rem',
           borderLeft: '4px solid var(--color-accent)',
           color: 'var(--color-text-secondary)',
           fontStyle: 'italic',
-          lineHeight: 1.5,
+          lineHeight: 'var(--line-height-body)',
           fontSize: '1rem',
 
           '& p': {
@@ -436,6 +438,68 @@ const baseTheme = createTheme({
             webkitBackdropFilter: 'none',
             border: '2px solid var(--color-border)',
           },
+        },
+      },
+    },
+    MuiMenu: {
+      defaultProps: {
+        anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
+        transformOrigin: { vertical: 'top', horizontal: 'right' },
+        slotProps: {
+          paper: {
+            elevation: 0,
+          },
+        },
+      },
+      styleOverrides: {
+        paper: {
+          marginTop: 8,
+          borderRadius: 8,
+          backgroundColor: 'color-mix(in srgb, var(--color-bg-feature) 50%, transparent)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          border: '1px solid var(--color-border)',
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            backgroundColor: 'var(--color-bg-feature)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+            border: '2px solid var(--color-border)',
+          },
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          borderRadius: 6,
+          margin: '2px 4px',
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+        },
+        input: {
+          padding: '8px 12px',
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          border: '1px solid var(--color-border)',
+          borderRadius: 8,
+          minHeight: 'unset',
+          padding: '8px 12px',
+        },
+        icon: {
+          transition: 'transform 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+        },
+        iconOpen: {
+          transform: 'rotate(180deg)',
         },
       },
     },

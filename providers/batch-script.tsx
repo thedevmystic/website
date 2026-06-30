@@ -50,6 +50,14 @@ export function BatchScript({ nonce }: BatchScriptProps) {
           enableColorScheme: false,
           tokens: ['blue', 'red', 'green', 'yellow', 'pink'],
         },
+        {
+          storageKey: 'content-density',
+          attribute: 'data-density',
+          defaultToken: 'comfortable',
+          enableSystem: false,
+          enableColorScheme: false,
+          tokens: ['compact', 'comfortable', 'spacious'],
+        },
       ]}
     />
   );

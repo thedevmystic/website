@@ -42,7 +42,7 @@ export default function AccentToggle() {
 
   const handleAccentChange = (
     _event: React.MouseEvent<HTMLElement>,
-    selectedAccent: Accent | null
+    selectedAccent: Accent | null,
   ) => {
     if (!selectedAccent) return;
     setAccent(selectedAccent);
@@ -59,9 +59,7 @@ export default function AccentToggle() {
           overflow: 'visible',
         }}
       >
-        <Typography variant="body2">
-          Accent
-        </Typography>
+        <Typography variant="body2">Accent</Typography>
         <ToggleButtonGroup
           value={accent}
           exclusive
@@ -88,12 +86,12 @@ export default function AccentToggle() {
                   backgroundColor: `${color} !important`,
                   borderRadius: '35%',
                   transition: 'transform 0.2s ease-in-out, box-shadow 0.2s',
-                  
+
                   '&:hover': {
                     backgroundColor: `${color} !important`,
                     transform: 'scale(1.1)',
                   },
-                  
+
                   '&.Mui-selected': {
                     backgroundColor: `${color} !important`,
                     transform: 'scale(1.15)',

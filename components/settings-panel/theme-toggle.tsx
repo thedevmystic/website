@@ -99,7 +99,7 @@ export default function ThemeToggle() {
       setTheme(baseTheme as Theme);
     }
   };
-  
+
   const currentBaseTheme = isSepia ? null : baseTheme;
 
   return (

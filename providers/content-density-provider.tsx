@@ -14,8 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file theme-provider.tsx
- * @description Provider for wrapping the application with the theme switcher.
+ * @file content-density-provider.tsx
+ * @description Provider for wrapping the application with the content density switcher.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -27,22 +27,21 @@
 
 import { createTokenProvider } from 'next-tokens';
 
-export type Theme =
-  'light' | 'dark' | 'high-contrast-light' | 'high-contrast-dark' | 'sepia' | 'system';
+export type ContentDensity = 'compact' | 'comfortable' | 'spacious';
 
 const {
-  Provider: ThemeProvider,
-  useToken: useTheme,
-  context: themeContext,
-} = createTokenProvider<Theme>({
-  storageKey: 'theme',
-  attribute: 'data-theme',
-  defaultToken: 'system',
-  enableSystem: true,
-  enableColorScheme: true,
-  tokens: ['light', 'dark', 'high-contrast-light', 'high-contrast-dark', 'sepia', 'system'],
+  Provider: ContentDensityProvider,
+  useToken: useContentDensity,
+  context: contentDensityContext,
+} = createTokenProvider<ContentDensity>({
+  storageKey: 'content-density',
+  attribute: 'data-density',
+  defaultToken: 'comfortable',
+  enableSystem: false,
+  enableColorScheme: false,
+  tokens: ['compact', 'comfortable', 'spacious'],
   disableTransitionOnChange: false,
   skipScript: true,
 });
 
-export { ThemeProvider, useTheme, themeContext };
+export { ContentDensityProvider, useContentDensity, contentDensityContext };
