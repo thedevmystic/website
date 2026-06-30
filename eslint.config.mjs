@@ -35,6 +35,15 @@ import tseslint from 'typescript-eslint';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// since next config also defines tseslint
+const sanitizedNextConfig = nextConfig.map((config) => {
+  if (config.plugins && config.plugins['@typescript-eslint']) {
+    const { '@typescript-eslint': _, ...remainingPlugins } = config.plugins;
+    return { ...config, plugins: remainingPlugins };
+  }
+  return config;
+});
+
 export default tseslint.config(
   // Ignore Next.js build output and ESLint config file
   {
@@ -45,7 +54,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
 
   // Next.js ESLint Recommended Config
-  ...nextConfig,
+  ...sanitizedNextConfig,
 
   // React and React Hooks ESLint Recommended Config
   {
