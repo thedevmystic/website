@@ -30,13 +30,11 @@ import type { ReactNode } from 'react';
 
 import CloseIcon from '@mui/icons-material/Close';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Box, Typography, Divider, IconButton, Skeleton } from '@mui/material';
+import { Box, Typography, IconButton, Skeleton } from '@mui/material';
 
 import useIsMounted from '@hooks/use-is-mounted';
 
-import AccentToggle from './accent-toggle';
-import ContentDensityToggle from './content-density-toggle';
-import ThemeToggle from './theme-toggle';
+import GeneralSettingsPanel from './general';
 
 interface SettingsPanelProps {
   onClose?: () => void;
@@ -157,20 +155,7 @@ export default function SettingsPanel({ onClose }: SettingsPanelProps) {
         </Box>
 
         <Box role="tabpanel" sx={{ flex: 1, overflowY: 'auto', p: { xs: 2, sm: 3 } }}>
-          {activeSection === 'general' && (
-            <>
-              <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>
-                Appearance
-              </Typography>
-              <ThemeToggle />
-              <Divider />
-              <AccentToggle />
-              <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 2, mb: 1 }}>
-                Reading
-              </Typography>
-              <ContentDensityToggle />
-            </>
-          )}
+          {activeSection === 'general' && <GeneralSettingsPanel />}
         </Box>
       </Box>
     </Box>
