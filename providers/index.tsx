@@ -29,6 +29,7 @@ import { BatchScript } from './batch-script';
 import { ContentDensityProvider } from './content-density-provider';
 import { ContentWidthProvider } from './content-width-provider';
 import { FontProvider, FontSizeProvider } from './font-provider';
+import { MotionProvider } from './motion-provider';
 import { MuiThemeProviderWrapper } from './mui-theme-provider';
 import { ThemeProvider } from './theme-provider';
 
@@ -36,15 +37,17 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
       <AccentProvider>
-        <ContentDensityProvider>
-          <ContentWidthProvider>
-            <FontProvider>
-              <FontSizeProvider>
-                <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
-              </FontSizeProvider>
-            </FontProvider>
-          </ContentWidthProvider>
-        </ContentDensityProvider>
+        <MotionProvider>
+          <ContentDensityProvider>
+            <ContentWidthProvider>
+              <FontProvider>
+                <FontSizeProvider>
+                  <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
+                </FontSizeProvider>
+              </FontProvider>
+            </ContentWidthProvider>
+          </ContentDensityProvider>
+        </MotionProvider>
       </AccentProvider>
     </ThemeProvider>
   );

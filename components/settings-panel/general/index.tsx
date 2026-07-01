@@ -30,6 +30,7 @@ import ContentDensityToggle from './content-density-toggle';
 import ContentWidthToggle from './content-width-toggle';
 import FontSizeSlider from './font-size-slider';
 import FontToggle from './font-toggle';
+import MotionToggle from './motion-toggle';
 import ThemeToggle from './theme-toggle';
 
 export default function GeneralSettingsPanel() {
@@ -41,7 +42,9 @@ export default function GeneralSettingsPanel() {
       <ThemeToggle />
       <Divider />
       <AccentToggle />
-      <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 2, mb: 1 }}>
+      <Divider />
+      <MotionToggle />
+      <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 3, mb: 1 }}>
         Reading
       </Typography>
       <FontToggle />

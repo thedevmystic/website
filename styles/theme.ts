@@ -417,6 +417,13 @@ const baseTheme = createTheme({
             animation: 'none !important',
           },
         },
+        '[data-motion="reduced"]': {
+          html: { scrollBehavior: 'auto !important' },
+          '*, *::before, *::after': {
+            transition: 'none !important',
+            animation: 'none !important',
+          },
+        },
         '@media (forced-colors: active)': {
           '*:focus, *:focus-visible': {
             forcedColorAdjust: 'none',

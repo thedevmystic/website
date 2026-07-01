@@ -79,6 +79,14 @@ const INSTANCES: TokenScriptConfig[] = [
     enableColorScheme: false,
     tokens: ['small', 'normal', 'large', 'xlarge'],
   },
+  {
+    storageKey: 'motion',
+    attribute: 'data-motion',
+    defaultToken: 'system',
+    enableSystem: false,
+    enableColorScheme: false,
+    tokens: ['system', 'reduced'],
+  },
 ] as const;
 
 export function BatchScript({ nonce }: BatchScriptProps) {
