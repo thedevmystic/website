@@ -56,6 +56,25 @@ export default function ContentDensityToggle() {
             value={contentDensity || ''}
             onChange={handleContentDensityChange}
             inputProps={{ 'aria-label': 'Content density' }}
+            MenuProps={{
+              slotProps: {
+                paper: {
+                  sx: {
+                    backgroundColor: 'color-mix(in srgb, var(--color-bg-feature) 50%, transparent)',
+                    backdropFilter: 'blur(6px) !important',
+                    WebkitBackdropFilter: 'blur(6px) !important',
+                    border: '1px solid var(--color-border)',
+
+                    '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+                      backdropFilter: 'none !important',
+                      WebkitBackdropFilter: 'none !important',
+                      backgroundColor: 'var(--color-bg-feature)',
+                      border: '2px solid var(--color-border)',
+                    },
+                  },
+                },
+              },
+            }}
           >
             <MenuItem value="compact">
               <Typography variant="body2">Compact</Typography>

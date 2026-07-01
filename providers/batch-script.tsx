@@ -63,7 +63,7 @@ const INSTANCES: TokenScriptConfig[] = [
     enableColorScheme: false,
     tokens: ['narrow', 'standard', 'wide'],
   },
-];
+] as const;
 
 export function BatchScript({ nonce }: BatchScriptProps) {
   return <BatchedTokenScript nonce={nonce} instances={INSTANCES} />;

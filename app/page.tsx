@@ -45,10 +45,7 @@ export default function ThemeShowcasePage() {
   }, [fontHead, fontBody]);
 
   return (
-    <Container
-      className="container"
-      sx={{ py: 6, background: 'linear-gradient(135deg, #ff6ec4 0%, #7873f5 50%, #4ade80 100%)' }}
-    >
+    <Container className="container" sx={{ py: 6 }}>
       <Box
         sx={{
           p: 3,
