@@ -28,6 +28,7 @@ import { Typography, Divider } from '@mui/material';
 import AccentToggle from './accent-toggle';
 import ContentDensityToggle from './content-density-toggle';
 import ContentWidthToggle from './content-width-toggle';
+import FontSizeSlider from './font-size-slider';
 import FontToggle from './font-toggle';
 import ThemeToggle from './theme-toggle';
 
@@ -44,6 +45,8 @@ export default function GeneralSettingsPanel() {
         Reading
       </Typography>
       <FontToggle />
+      <Divider />
+      <FontSizeSlider />
       <Divider />
       <ContentDensityToggle />
       <Divider />

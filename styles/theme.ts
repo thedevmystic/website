@@ -274,6 +274,8 @@ const baseTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         html: {
+          fontSize: 'var(--font-size)',
+
           fontVariantCaps: 'normal',
           fontVariantLigatures: 'normal',
           fontVariantPosition: 'normal',
@@ -659,6 +661,103 @@ const baseTheme = createTheme({
             color: 'var(--color-text-disabled) !important',
             borderColor: 'var(--color-divider) !important',
             opacity: 0.5,
+          },
+        },
+      },
+    },
+    MuiSlider: {
+      defaultProps: {
+        size: 'small',
+      },
+      styleOverrides: {
+        root: {
+          height: 4,
+          padding: '8px 0',
+        },
+        rail: {
+          height: 4,
+          borderRadius: 4,
+          opacity: 1,
+          backgroundColor:
+            'color-mix(in srgb, var(--color-switch-track-unchecked) 50%, transparent)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          border: '1px solid var(--color-border)',
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            backgroundColor: 'var(--color-switch-track-unchecked)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+          },
+        },
+        track: {
+          height: 4,
+          border: 'none',
+          borderRadius: 4,
+          backgroundColor: 'color-mix(in srgb, var(--color-accent) 60%, transparent)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            backgroundColor: 'var(--color-accent)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+          },
+        },
+        thumb: {
+          width: 14,
+          height: 14,
+          backgroundColor: 'var(--color-bg-surface)',
+          border: '2px solid var(--color-accent)',
+          boxShadow: 'none',
+          transition:
+            'box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1), transform 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+
+          '&:hover, &.Mui-focusVisible': {
+            boxShadow: '0 0 0 6px color-mix(in srgb, var(--color-accent) 16%, transparent)',
+          },
+          '&.Mui-active': {
+            boxShadow: '0 0 0 8px color-mix(in srgb, var(--color-accent) 16%, transparent)',
+          },
+        },
+        mark: {
+          width: 4,
+          height: 4,
+          borderRadius: '50%',
+          backgroundColor: 'var(--color-border)',
+          opacity: 1,
+
+          '&.MuiSlider-markActive': {
+            backgroundColor: 'color-mix(in srgb, var(--color-accent) 60%, transparent)',
+          },
+        },
+        markLabel: {
+          fontSize: '0.75rem',
+          lineHeight: 'calc(var(--line-height-body) * 0.90)',
+          fontWeight: 400,
+          color: 'var(--color-text-secondary)',
+          top: 18,
+        },
+        valueLabel: {
+          backgroundColor: 'color-mix(in srgb, var(--color-bg-feature) 75%, transparent)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          color: 'var(--color-text-secondary)',
+          border: '1px solid var(--color-border)',
+          borderRadius: 6,
+          padding: '2px 8px',
+          fontSize: '0.75rem',
+          fontWeight: 500,
+
+          '&:before': {
+            display: 'none',
+          },
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            backgroundColor: 'var(--color-bg-feature)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+            border: '2px solid var(--color-border)',
           },
         },
       },

@@ -71,6 +71,14 @@ const INSTANCES: TokenScriptConfig[] = [
     enableColorScheme: false,
     tokens: ['sans', 'serif', 'comic', 'def-sans', 'def-serif'],
   },
+  {
+    storageKey: 'font-size',
+    attribute: 'data-font-size',
+    defaultToken: 'normal',
+    enableSystem: false,
+    enableColorScheme: false,
+    tokens: ['small', 'normal', 'large', 'xlarge'],
+  },
 ] as const;
 
 export function BatchScript({ nonce }: BatchScriptProps) {

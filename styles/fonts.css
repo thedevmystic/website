@@ -53,53 +53,67 @@
   --font-mono-base:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-
-  /* Current font variables */
-  --font: var(--font-noto-sans), var(--font-sans-base);
-  --font-mono: var(--font-jetbrains-mono), var(--font-mono-base);
 }
 
 /* Body fonts. */
-:root[data-font='sans'] {
+:root,
+[data-font='sans'] {
   --font: var(--font-noto-sans), var(--font-sans-base);
 }
-:root[data-font='serif'] {
+[data-font='serif'] {
   --font: var(--font-noto-serif), var(--font-serif-base);
 }
-:root[data-font='comic'] {
+[data-font='comic'] {
   --font: var(--font-comic-relief), 'Comic Relief Fallback', var(--font-sans-base);
 }
-:root[data-font='def-sans'] {
+[data-font='def-sans'] {
   --font: var(--font-sans-base);
 }
-:root[data-font='def-serif'] {
+[data-font='def-serif'] {
   --font: var(--font-serif-base);
 }
 
 /* Monospace fonts. */
-:root[data-font-mono='jb-mono'] {
+:root,
+[data-font-mono='jb-mono'] {
   --font-mono: var(--font-jetbrains-mono), var(--font-mono-base);
 }
-:root[data-font-mono='fira-code'] {
+[data-font-mono='fira-code'] {
   --font-mono: var(--font-fira-code), var(--font-mono-base);
 }
-:root[data-font-mono='source-code-pro'] {
+[data-font-mono='source-code-pro'] {
   --font-mono: var(--font-source-code-pro), var(--font-mono-base);
 }
-:root[data-font-mono='ubuntu-mono'] {
+[data-font-mono='ubuntu-mono'] {
   --font-mono: var(--font-ubuntu-mono), var(--font-mono-base);
 }
-:root[data-font-mono='def-mono'] {
+[data-font-mono='def-mono'] {
   --font-mono: var(--font-mono-base);
 }
 
 /* Math fonts. */
-:root[data-font-math='libertinus'] {
+:root,
+[data-font-math='libertinus'] {
   --font-math: var(--font-libertinus-math), 'Libertinus Math Fallback', var(--font-serif-base);
 }
-:root[data-font-math='noto-sans-math'] {
+[data-font-math='noto-sans-math'] {
   --font-math: var(--font-noto-sans-math), var(--font-serif-base);
 }
-:root[data-font-math='def-math'] {
+[data-font-math='def-math'] {
   --font-math: var(--font-serif-base), var(--font-sans-base);
+}
+
+/* Font size variables. */
+:root,
+[data-font-size='normal'] {
+  --font-size: 16px;
+}
+[data-font-size='small'] {
+  --font-size: 14px;
+}
+[data-font-size='large'] {
+  --font-size: 20px;
+}
+[data-font-size='xlarge'] {
+  --font-size: 24px;
 }

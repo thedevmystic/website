@@ -44,4 +44,21 @@ const {
   skipScript: true,
 });
 
-export { FontProvider, useFont, fontContext };
+export type FontSize = 'small' | 'normal' | 'large' | 'xlarge';
+
+const {
+  Provider: FontSizeProvider,
+  useToken: useFontSize,
+  context: fontSizeContext,
+} = createTokenProvider<FontSize>({
+  storageKey: 'font-size',
+  attribute: 'data-font-size',
+  defaultToken: 'normal',
+  enableSystem: false,
+  enableColorScheme: false,
+  tokens: ['small', 'normal', 'large', 'xlarge'],
+  disableTransitionOnChange: false,
+  skipScript: true,
+});
+
+export { FontProvider, useFont, fontContext, FontSizeProvider, useFontSize, fontSizeContext };
