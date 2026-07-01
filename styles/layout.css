@@ -1,0 +1,38 @@
+/* Layout tokens */
+
+/** Content density tokens */
+:root,
+[data-density='comfortable'] {
+  --spacing-unit: 8px;
+  --line-height-body: 1.5;
+}
+
+[data-density='compact'] {
+  --spacing-unit: 6px;
+  --line-height-body: 1.25;
+}
+
+[data-density='spacious'] {
+  --spacing-unit: 10px;
+  --line-height-body: 1.7;
+}
+
+/** Content width tokens */
+:root,
+[data-width='narrow'] {
+  --content-width: 40rem;
+}
+
+[data-width='standard'] {
+  --content-width: 64rem;
+}
+
+[data-width='wide'] {
+  --content-width: 80rem;
+}
+
+.container {
+  max-width: var(--content-width);
+  width: 100%;
+  transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

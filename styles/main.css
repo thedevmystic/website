@@ -1,7 +1,5 @@
 /* Main CSS file for the website. */
 
 @import './colors.css';
-@import './components.css';
-@import './density.css';
 @import './fonts.css';
-@import 'width.css';
+@import './layout.css';

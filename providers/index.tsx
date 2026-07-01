@@ -33,7 +33,8 @@ import { MotionProvider } from './motion-provider';
 import { MuiThemeProviderWrapper } from './mui-theme-provider';
 import { ThemeProvider } from './theme-provider';
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
+/** Base providers for the application */
+const BaseProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
       <AccentProvider>
@@ -51,6 +52,10 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       </AccentProvider>
     </ThemeProvider>
   );
+};
+
+export const Providers = ({ children }: { children: React.ReactNode }) => {
+  return <BaseProviders>{children}</BaseProviders>;
 };
 
 export { BatchScript };
