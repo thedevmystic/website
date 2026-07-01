@@ -14,8 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file index.tsx
- * @description Setting panel for general category.
+ * @file font-provider.tsx
+ * @description Provider for wrapping the application with the font switcher.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -23,31 +23,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Typography, Divider } from '@mui/material';
+'use client';
 
-import AccentToggle from './accent-toggle';
-import ContentDensityToggle from './content-density-toggle';
-import ContentWidthToggle from './content-width-toggle';
-import FontToggle from './font-toggle';
-import ThemeToggle from './theme-toggle';
+import { createTokenProvider } from 'next-tokens';
 
-export default function GeneralSettingsPanel() {
-  return (
-    <>
-      <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>
-        Appearance
-      </Typography>
-      <ThemeToggle />
-      <Divider />
-      <AccentToggle />
-      <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 2, mb: 1 }}>
-        Reading
-      </Typography>
-      <FontToggle />
-      <Divider />
-      <ContentDensityToggle />
-      <Divider />
-      <ContentWidthToggle />
-    </>
-  );
-}
+export type Font = 'sans' | 'serif' | 'comic' | 'def-sans' | 'def-serif';
+
+const {
+  Provider: FontProvider,
+  useToken: useFont,
+  context: fontContext,
+} = createTokenProvider<Font>({
+  storageKey: 'font',
+  attribute: 'data-font',
+  defaultToken: 'sans',
+  enableSystem: false,
+  enableColorScheme: false,
+  tokens: ['sans', 'serif', 'comic', 'def-sans', 'def-serif'],
+  disableTransitionOnChange: false,
+  skipScript: true,
+});
+
+export { FontProvider, useFont, fontContext };

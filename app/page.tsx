@@ -26,101 +26,11 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
-
-import { Container, Box, Typography, Button, Stack, Divider, Paper } from '@mui/material';
+import { Container, Box, Typography, Stack, Divider, Paper } from '@mui/material';
 
 export default function ThemeShowcasePage() {
-  const [fontHead, setFontHead] = useState<'serif' | 'sans' | 'comic' | 'def-sans' | 'def-serif'>(
-    'serif',
-  );
-  const [fontBody, setFontBody] = useState<'sans' | 'serif' | 'comic' | 'def-sans' | 'def-serif'>(
-    'sans',
-  );
-
-  useEffect(() => {
-    const root = document.documentElement;
-    root.setAttribute('data-font-head', fontHead);
-    root.setAttribute('data-font-body', fontBody);
-  }, [fontHead, fontBody]);
-
   return (
     <Container className="container" sx={{ py: 6 }}>
-      <Box
-        sx={{
-          p: 3,
-          mb: 6,
-          borderRadius: 'var(--radius-lg)',
-          backgroundColor: 'var(--color-bg-feature)',
-          border: '1px solid var(--color-border)',
-          boxShadow: 'var(--shadow-sm)',
-        }}
-      >
-        <Typography variant="h5" sx={{ mb: 1, fontWeight: 700 }}>
-          TheDevMystic
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 3 }} color="text.secondary">
-          Main Control Panel for adjusting theme and typography settings.
-        </Typography>
-
-        <Stack spacing={2.5}>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={4}>
-            <Box sx={{ flex: 1 }}>
-              <Typography
-                variant="caption"
-                sx={{
-                  display: 'block',
-                  mb: 1,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
-                }}
-              >
-                Heading Font Family
-              </Typography>
-              <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1 }}>
-                {(['serif', 'sans', 'comic'] as const).map((f) => (
-                  <Button
-                    key={f}
-                    size="small"
-                    variant={fontHead === f ? 'contained' : 'outlined'}
-                    onClick={() => setFontHead(f)}
-                  >
-                    {f}
-                  </Button>
-                ))}
-              </Stack>
-            </Box>
-            <Box sx={{ flex: 1 }}>
-              <Typography
-                variant="caption"
-                sx={{
-                  display: 'block',
-                  mb: 1,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
-                }}
-              >
-                Body Font Family
-              </Typography>
-              <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1 }}>
-                {(['sans', 'serif', 'comic'] as const).map((f) => (
-                  <Button
-                    key={f}
-                    size="small"
-                    variant={fontBody === f ? 'contained' : 'outlined'}
-                    onClick={() => setFontBody(f)}
-                  >
-                    {f}
-                  </Button>
-                ))}
-              </Stack>
-            </Box>
-          </Stack>
-        </Stack>
-      </Box>
-
       <Stack spacing={6}>
         <Box>
           <Typography variant="overline" sx={{ fontWeight: 600 }}>

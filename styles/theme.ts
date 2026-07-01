@@ -48,46 +48,46 @@ const baseTheme = createTheme({
 
   // MUI Typography
   typography: {
-    fontFamily: 'var(--font-body)',
+    fontFamily: 'var(--font)',
 
     // Headings
     h1: {
-      fontFamily: 'var(--font-head)',
+      fontFamily: 'var(--font)',
       fontSize: '2.5rem',
       lineHeight: 1.1,
       letterSpacing: '-0.025em',
       fontWeight: 700,
     },
     h2: {
-      fontFamily: 'var(--font-head)',
+      fontFamily: 'var(--font)',
       fontSize: '2rem',
       lineHeight: 1.15,
       letterSpacing: '-0.025em',
       fontWeight: 700,
     },
     h3: {
-      fontFamily: 'var(--font-head)',
+      fontFamily: 'var(--font)',
       fontSize: '1.75rem',
       lineHeight: 1.2,
       letterSpacing: '-0.015em',
       fontWeight: 600,
     },
     h4: {
-      fontFamily: 'var(--font-head)',
+      fontFamily: 'var(--font)',
       fontSize: '1.5rem',
       lineHeight: 1.25,
       letterSpacing: '-0.01em',
       fontWeight: 600,
     },
     h5: {
-      fontFamily: 'var(--font-head)',
+      fontFamily: 'var(--font)',
       fontSize: '1.25rem',
       lineHeight: 1.3,
       letterSpacing: '-0.005em',
       fontWeight: 500,
     },
     h6: {
-      fontFamily: 'var(--font-head)',
+      fontFamily: 'var(--font)',
       fontSize: '1.0625rem',
       lineHeight: 1.35,
       letterSpacing: '0em',
@@ -278,7 +278,6 @@ const baseTheme = createTheme({
           fontVariantLigatures: 'normal',
           fontVariantPosition: 'normal',
           fontKerning: 'normal',
-          fontSynthesis: 'none',
 
           overflowWrap: 'break-word',
           hyphens: 'auto',
@@ -326,7 +325,7 @@ const baseTheme = createTheme({
 
         // Body
         body: {
-          fontFamily: 'var(--font-body)',
+          fontFamily: 'var(--font)',
           fontSize: '1rem',
           margin: 0,
           padding: 0,
@@ -338,10 +337,8 @@ const baseTheme = createTheme({
 
         // Headings
         'h1, h2, h3, h4, h5, h6': {
-          fontFamily: 'var(--font-head)',
+          fontFamily: 'var(--font)',
           fontStyle: 'normal',
-          fontVariantNumeric:
-            'lining-nums proportional-nums slashed-zero ordinal stacked-fractions',
           color: 'var(--color-text-head)',
         },
 
