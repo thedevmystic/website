@@ -289,12 +289,43 @@ const baseTheme = createTheme({
           WebkitTapHighlightColor: 'transparent',
 
           minHeight: '100dvh',
+
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent) transparent',
+          scrollbarGutter: 'stable',
+        },
+
+        '*': {
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent) transparent',
+          boxSizing: 'border-box',
+        },
+        '*::before, *::after': {
+          boxSizing: 'border-box',
+        },
+
+        // Webkit Scrollbar Styles
+        '*::-webkit-scrollbar': {
+          width: '8px',
+          height: '8px',
+        },
+        '*::-webkit-scrollbar-track': {
+          backgroundColor: 'transparent',
+        },
+        '*::-webkit-scrollbar-thumb': {
+          backgroundColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent)',
+          borderRadius: '8px',
+        },
+        '*::-webkit-scrollbar-thumb:hover': {
+          backgroundColor: 'color-mix(in srgb, var(--color-accent) 75%, transparent)',
         },
 
         // Body
         body: {
           fontFamily: 'var(--font-body)',
           fontSize: '1rem',
+          margin: 0,
+          padding: 0,
           lineHeight: 'var(--line-height-body)',
           fontWeight: 400,
           color: 'var(--color-text-primary)',
