@@ -24,41 +24,47 @@
  */
 
 import { BatchedTokenScript } from 'next-tokens';
+import type { TokenScriptConfig } from 'next-tokens';
 
 interface BatchScriptProps {
   nonce: string;
 }
 
+const INSTANCES: TokenScriptConfig[] = [
+  {
+    storageKey: 'theme',
+    attribute: 'data-theme',
+    defaultToken: 'system',
+    enableSystem: true,
+    enableColorScheme: true,
+    tokens: ['light', 'dark', 'high-contrast-light', 'high-contrast-dark', 'sepia', 'system'],
+  },
+  {
+    storageKey: 'accent',
+    attribute: 'data-accent',
+    defaultToken: 'blue',
+    enableSystem: false,
+    enableColorScheme: false,
+    tokens: ['blue', 'red', 'green', 'yellow', 'pink'],
+  },
+  {
+    storageKey: 'content-density',
+    attribute: 'data-density',
+    defaultToken: 'comfortable',
+    enableSystem: false,
+    enableColorScheme: false,
+    tokens: ['compact', 'comfortable', 'spacious'],
+  },
+  {
+    storageKey: 'content-width',
+    attribute: 'data-width',
+    defaultToken: 'standard',
+    enableSystem: false,
+    enableColorScheme: false,
+    tokens: ['narrow', 'standard', 'wide'],
+  },
+];
+
 export function BatchScript({ nonce }: BatchScriptProps) {
-  return (
-    <BatchedTokenScript
-      nonce={nonce}
-      instances={[
-        {
-          storageKey: 'theme',
-          attribute: 'data-theme',
-          defaultToken: 'system',
-          enableSystem: true,
-          enableColorScheme: true,
-          tokens: ['light', 'dark', 'high-contrast-light', 'high-contrast-dark', 'sepia', 'system'],
-        },
-        {
-          storageKey: 'accent',
-          attribute: 'data-accent',
-          defaultToken: 'blue',
-          enableSystem: false,
-          enableColorScheme: false,
-          tokens: ['blue', 'red', 'green', 'yellow', 'pink'],
-        },
-        {
-          storageKey: 'content-density',
-          attribute: 'data-density',
-          defaultToken: 'comfortable',
-          enableSystem: false,
-          enableColorScheme: false,
-          tokens: ['compact', 'comfortable', 'spacious'],
-        },
-      ]}
-    />
-  );
+  return <BatchedTokenScript nonce={nonce} instances={INSTANCES} />;
 }

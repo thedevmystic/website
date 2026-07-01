@@ -14,8 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file index.tsx
- * @description Setting panel for general category.
+ * @file content-width-provider.tsx
+ * @description Provider for wrapping the application with the content width switcher.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -23,28 +23,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Typography, Divider } from '@mui/material';
+'use client';
 
-import AccentToggle from './accent-toggle';
-import ContentDensityToggle from './content-density-toggle';
-import ContentWidthToggle from './content-width-toggle';
-import ThemeToggle from './theme-toggle';
+import { createTokenProvider } from 'next-tokens';
 
-export default function GeneralSettingsPanel() {
-  return (
-    <>
-      <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>
-        Appearance
-      </Typography>
-      <ThemeToggle />
-      <Divider />
-      <AccentToggle />
-      <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 2, mb: 1 }}>
-        Reading
-      </Typography>
-      <ContentDensityToggle />
-      <Divider />
-      <ContentWidthToggle />
-    </>
-  );
-}
+export type ContentWidth = 'narrow' | 'standard' | 'wide';
+
+const {
+  Provider: ContentWidthProvider,
+  useToken: useContentWidth,
+  context: contentWidthContext,
+} = createTokenProvider<ContentWidth>({
+  storageKey: 'content-width',
+  attribute: 'data-width',
+  defaultToken: 'standard',
+  enableSystem: false,
+  enableColorScheme: false,
+  tokens: ['narrow', 'standard', 'wide'],
+  disableTransitionOnChange: false,
+  skipScript: true,
+});
+
+export { ContentWidthProvider, useContentWidth, contentWidthContext };

@@ -45,7 +45,7 @@ export default function ThemeShowcasePage() {
   }, [fontHead, fontBody]);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 6 }}>
+    <Container className="container" sx={{ py: 6 }}>
       <Box
         sx={{
           p: 3,

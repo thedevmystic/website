@@ -27,6 +27,7 @@
 import { AccentProvider } from './accent-provider';
 import { BatchScript } from './batch-script';
 import { ContentDensityProvider } from './content-density-provider';
+import { ContentWidthProvider } from './content-width-provider';
 import { MuiThemeProviderWrapper } from './mui-theme-provider';
 import { ThemeProvider } from './theme-provider';
 
@@ -35,7 +36,9 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
     <ThemeProvider>
       <AccentProvider>
         <ContentDensityProvider>
-          <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
+          <ContentWidthProvider>
+            <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
+          </ContentWidthProvider>
         </ContentDensityProvider>
       </AccentProvider>
     </ThemeProvider>
