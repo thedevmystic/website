@@ -551,33 +551,77 @@ const baseTheme = createTheme({
         },
         switchBase: {
           padding: 2,
-          color: 'var(--color-switch-thumb-unchecked)',
+          color: 'color-mix(in srgb, var(--color-switch-thumb-unchecked) 70%, transparent)',
           '&.Mui-checked': {
             transform: 'translateX(20px)',
-            color: 'var(--color-accent)',
+            color: 'color-mix(in srgb, var(--color-accent) 70%, transparent)',
             '& + .MuiSwitch-track': {
               opacity: 1,
-              backgroundColor: 'color-mix(in srgb, var(--color-accent) 40%, transparent)',
+              backgroundColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+
+              '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+                backgroundColor: 'var(--color-accent)',
+                backdropFilter: 'none',
+                WebkitBackdropFilter: 'none',
+              },
+            },
+
+            '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+              color: 'var(--color-accent)',
             },
           },
           '&.Mui-disabled': {
-            color: 'var(--color-switch-thumb-disabled)',
+            color: 'color-mix(in srgb, var(--color-switch-thumb-disabled) 70%, transparent)',
             '& + .MuiSwitch-track': {
-              backgroundColor: 'var(--color-switch-track-disabled)',
+              backgroundColor:
+                'color-mix(in srgb, var(--color-switch-track-disabled) 50%, transparent)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+
+              '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+                backgroundColor: 'var(--color-switch-track-disabled)',
+                backdropFilter: 'none',
+                WebkitBackdropFilter: 'none',
+              },
             },
+          },
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            color: 'var(--color-switch-thumb-unchecked)',
           },
         },
         thumb: {
           width: 16,
           height: 16,
           boxShadow: 'none',
+          color: 'color-mix(in srgb, var(--color-switch-thumb-unchecked) 70%, transparent)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          transition: 'transform 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            color: 'var(--color-switch-thumb-unchecked)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+          },
         },
         track: {
           borderRadius: 10,
           opacity: 1,
-          backgroundColor: 'var(--color-switch-track-unchecked)',
+          backgroundColor:
+            'color-mix(in srgb, var(--color-switch-track-unchecked) 50%, transparent)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
           border: '1px solid var(--color-border)',
           transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)',
+
+          '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
+            backgroundColor: 'var(--color-switch-track-unchecked)',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+          },
         },
       },
     },
