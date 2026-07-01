@@ -292,7 +292,6 @@ const baseTheme = createTheme({
 
           scrollbarWidth: 'thin',
           scrollbarColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent) transparent',
-          scrollbarGutter: 'stable',
         },
 
         '*': {
@@ -318,6 +317,11 @@ const baseTheme = createTheme({
         },
         '*::-webkit-scrollbar-thumb:hover': {
           backgroundColor: 'color-mix(in srgb, var(--color-accent) 75%, transparent)',
+        },
+
+        '*::selection': {
+          backgroundColor: 'color-mix(in srgb, var(--color-accent) 40%, transparent)',
+          color: 'inherit',
         },
 
         // Body
